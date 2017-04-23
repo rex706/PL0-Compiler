@@ -1,0 +1,14 @@
+/*
+ * Unary.pl0
+ * A unary operator is only allowed at the beginning of an expression.
+ * Error Message: 
+ */
+
+var x;
+begin
+
+	x := 0;
+	x := -1 + -x + 5; /* Attempted to use unary - on a term that is not the first of an expression. */
+	x := -1 + (-x) + 5; /* Correct statement. */
+
+end.

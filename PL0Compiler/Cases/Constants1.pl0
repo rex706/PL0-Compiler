@@ -1,0 +1,13 @@
+/*
+ * Constants1.pl0
+ * Constants cannot be assigned to or written to via 'read'.
+ * Error Message: Attempted to assign a new value to a constant.
+ */
+
+const x = 0;
+begin
+
+	x := 1; /* Attempted to assign a value to a constant. */
+	write x
+
+end.

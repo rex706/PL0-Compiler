@@ -1,0 +1,10 @@
+/*
+ * Parenthesis1.pl0
+ * An error should be thrown when parenthesis are mismatched in expressions.
+ * Error Message: An open parenthesis was used without an associated close parenthesis.
+ */
+
+var x;
+begin
+	x := 5 + (4 + 5
+end.

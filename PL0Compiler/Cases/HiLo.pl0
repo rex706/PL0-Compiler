@@ -1,0 +1,36 @@
+/*
+ * HiLo.pl0
+ * Allows the player to play the Hi-Lo guessing game. 
+ * Output: When the player enters a guess, prints a 2 if higher than target, prints 1 if lower than target, and prints 0 on correct answer.
+ */
+
+const target = 54, highOutput = 2, lowOutput = 1, correct = 0;
+var guess;
+begin
+
+/* Initialize the guess variable to 0. */
+guess := 0;
+
+/* Keep the game going as long as the user has not guessed the target answer. */
+while guess <> target do
+begin
+	
+	/* Prompt the user to take a guess. */
+	read guess;
+	
+	/* Kind of wish we could implement else and not have a 5th of our grade deducted. */
+	
+	if guess > target then
+		write highOutput;
+	if guess < target then
+	begin
+		write lowOutput
+	end;
+	if guess = target then
+		write correct
+
+/* End main game loop. */
+end
+
+/* End Program*/
+end.

@@ -1,0 +1,10 @@
+/*
+ * Statements2.pl0
+ * In a begin-end block of one statement, that single statement must not end in a semicolon.
+ * Error Message: Found a superfluous semicolon on a statement before end.
+ */
+
+var x;
+begin
+	x := 4;
+end.

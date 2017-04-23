@@ -1,0 +1,13 @@
+/*
+ * Negate.pl0
+ * Does a bunch of redundant operations to negate the input, then outputs it.
+ * Output: The negation of the value entered.
+ */
+
+var x;
+begin
+	read x;
+	/* x := -(-1 * -x * -1) / -1; was the original */
+       x := -((-1) * (-x) * (-1)) / (-1); /* probably follows grammar rules better */
+	write x
+end.

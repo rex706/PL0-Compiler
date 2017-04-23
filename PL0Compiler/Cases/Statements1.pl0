@@ -1,0 +1,8 @@
+/*
+ * Statements1.pl0
+ * If the entire program is a single statement, that statement should end with a ., not a semicolon.
+ * Error Message: End of File was found early.
+ */
+
+var x;
+x := 4;

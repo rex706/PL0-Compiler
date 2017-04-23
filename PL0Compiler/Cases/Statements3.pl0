@@ -1,0 +1,12 @@
+/*
+ * Statements3.pl0
+ * In a begin-end block of multiple statements, all statements except the last must have semicolons.
+ * Error Message: Missing a semi-colon ';' or comma ','.
+ */
+
+var x;
+begin
+	x := 4;
+	x := 3
+	x := 2
+end.

@@ -1,0 +1,12 @@
+/*
+ * Statements4.pl0
+ * In a begin-end block of multiple statements, all statements except the last must have semicolons. The last must not have a semicolon.
+ * Error Message: Found a superfluous semicolon on a statement before end.
+ */
+
+var x;
+begin
+	x := 4;
+	x := 3;
+	x := 2;
+end.

@@ -1,0 +1,9 @@
+/*
+ * Reserved.pl0
+ * Cannot use a PL/0 reserved name for an identifier name.
+ * Error Message 1: The name 'begin' is a reserved keyword and cannot be used as an identifier name.
+ * Error Message 2: The const, var and procedure keywords must be followed by an identifier.
+ */
+
+var begin;
+.

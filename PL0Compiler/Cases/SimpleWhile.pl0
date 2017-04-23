@@ -1,0 +1,20 @@
+/*
+ * SimpleWhile.pl0
+ * Performs a simple while loop.
+ * Output: Values from start to end, decremented by 1 each time.
+ */
+
+const start = 10, finish = 0;
+var current;
+begin
+
+	current := start;
+	while current >= finish do
+	begin
+	
+		write current;
+		current := current - 1
+		
+	end
+
+end.

@@ -1,0 +1,10 @@
+/*
+ * Parenthesis2.pl0
+ * An error should be thrown when parenthesis are mismatched in expressions.
+ * Error Message: An identifier or number was expected.
+ */
+
+var x;
+begin
+	x := 5 + )4 + 5
+end.

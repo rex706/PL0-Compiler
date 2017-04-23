@@ -1,0 +1,50 @@
+
+Source File:
+
+var 5, x y;
+const a = b, c := 2;
+
+begin
+	x = 5;
+	x := 2
+	2;
+	z := 1;
+	c := 3;
+	x 2;
+	call x;
+	
+	if x < 10 
+		x := 1;
+
+	while x < 10
+		x := 1 2;
+	
+	if x 2 then
+		x := (1 + 2;
+
+	x := if;
+
+	x := (5 + call);
+	
+end; 
+
+
+***** Error 4: const, var, procedure must be followed by identifier
+***** Error 5: Semicolon or comma missing
+***** Error 27: Const must be declared before Var
+***** Error 2: = must be followed by a number
+***** Error 3: Identifier must be followed by =
+***** Error 1: Use of = instead of :=
+***** Error 19: Incorrect symbol following statement
+***** Error 11: Undeclared identifier
+***** Error 12: Assignment to constant or procedure is not allowed
+***** Error 13: Assignment operator expected
+***** Error 15: Call of a constant or variable is meaningless
+***** Error 16: then expected
+***** Error 18: do expected
+***** Error 19: Incorrect symbol following statement
+***** Error 20: Relational operator expected
+***** Error 22: Right parenthesis missing
+***** Error 24: An expression cannot begin with this symbol
+***** Error 23: The preceding factor cannot begin with this symbol
+***** Error 9: Period expected

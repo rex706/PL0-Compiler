@@ -1,0 +1,10 @@
+/*
+ * Unassigned.pl0
+ * Attempting to use a variable that has not been assigned should result in an error.
+ * Error Message: Attempted to use the variable 'x' without assigning a value to it first.
+ */
+
+var x, y;
+begin
+	y := 4 + x
+end.

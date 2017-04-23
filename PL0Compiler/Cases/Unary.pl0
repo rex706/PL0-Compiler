@@ -1,0 +1,18 @@
+/*
+ * Unary.pl0
+ * Tests the compilers ability to deal with unary operators correctly.
+ * Output: A 5, then a -10, and then a -480.
+ */
+
+var x, a;
+begin
+	x := 5;
+	a := 10;
+	x := -x + (+a);
+	write x;
+	x := -10;
+	write x;
+	x := +(-15);
+	x := -(x * 4) * (-((+4) + 4));
+	write x
+end.

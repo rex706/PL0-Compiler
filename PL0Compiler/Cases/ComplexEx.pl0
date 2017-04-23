@@ -1,0 +1,43 @@
+/*
+ * ComplexEx.pl0
+ * Ensures your program can handle complex expressions, which includes binary +, -, *, /, and unary + and -.
+ * Output: The following series of numbers: [-10, 10, 20, -190, 33, -303, 3227, 6480010, 648039430, 167].
+ */
+
+const a = 10, b = 20, c = 30;
+var x, y, z, monster;
+begin
+
+/* Starting out slow. */
+x := -10;
+y := -(-(a));
+z := -(-(b));
+
+write x;
+write y;
+write z;
+
+/* Starting to get a bit crazy. */
+x := +a * (-4 - 5 - 4 - (-6) + (-12));
+y := (-c) / (-a) + b + b + (-a);
+z := -((a + b + c) - ((+x) - y - (+z)));
+
+write x;
+write y;
+write z;
+
+/* Oh dear Lord... */
+x := 5 * x / 5 * x / 10 + x - 2 + x - 1;
+y := a + (3) * (((5)*(9 * 8 * a * b * c)));
+z := ((((((+a)))))) * (x + y * a - b + c - z * 2);
+
+write x;
+write y;
+write z;
+
+/* ...whoa. */
+monster := (a + 1) + (b * 2) - (+c + 1) * (-c / 2) - (a + b) * (b - a) - (-(5) * (-5)) + (+a + (b + (-c))) - (a+(-b+(c+(1+(+2+(-3+(4))))))) - (1000 - 10000) / (1000 + 10000);
+
+write monster
+
+end.

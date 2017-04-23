@@ -1,0 +1,12 @@
+/*
+ * SimpleIf.pl0
+ * Performs a simple if condition check.
+ * Output: If the input is not 0, the input is printed. Otherwise, nothing is printed and the program ends.
+ */
+
+var x;
+begin
+	read x;	
+	if x <> 0 then
+		write x
+end.
