@@ -1,7 +1,5 @@
 # PL/0 Compiler
 
-========================
-
 Compiler for the PL/0 language with registers written in C.
 
 ERROR RECOVERY NOT IMPLEMENTED.
@@ -12,15 +10,18 @@ Compiler will read any text file from the command line specified by argv[1] of a
 take in any amount of the available commands in any order separated by spaces,
 and will output to a text file of any name. 
 
-Compiling in Linux Environment:
+
+*Compiling in Linux Environment:*
 
 gcc -o [name] PL0Compiler.c LexiAnalyze.c ParserCodeGen.c PL0VM.c
 
-Running in Linux Environment:
+
+*Running in Linux Environment:*
 
 ./[name] [input] [commands] > [output]
 
-Print commands:
+
+*Print commands:*
 
 -s - print input source code.
 
@@ -30,11 +31,13 @@ Print commands:
 
 -v - print virtual machine execution trace.
 
+
 Remark:
 
 A more detailed print statement of the lexeme table can be enabled at the end of LexiAnalyze.c.
 
-Compile and cammand examples:
+
+*Compile and cammand examples:*
 
 ./compile input.txt –l –a –v -s		Print all types of output to the console.
 
@@ -42,11 +45,12 @@ Compile and cammand examples:
 
 ./compile input.txt					Print nothing to the console except for "in" and "out".
 
+
 "/Cases" directory contains various test cases and examples that can be used with the compiler.
 
 ------------------------
 
-EBNF of PL/0:
+*EBNF of PL/0:*
 
 
 program :: = block "." .
@@ -61,23 +65,23 @@ procedure-declaration :: = { "procedure" ident ";" block ";" }
 
 statement :: = [ident ":=" expression
 
-				| "call" ident
+			| "call" ident
 				
-				| "begin" statement{ ";" statement } "end"
+			| "begin" statement{ ";" statement } "end"
 				
-				| "if" condition "then" statement["else" statement]
+			| "if" condition "then" statement["else" statement]
 				
-				| "while" condition "do" statement
+			| "while" condition "do" statement
 				
-				| "read" ident
+			| "read" ident
 				
-				| "write" expression
+			| "write" expression
 				
-				| e] .
+			| e] .
 				
 condition :: = "odd" expression
 
-				| expression  rel-op  expression.
+			| expression  rel-op  expression.
 				
 rel-op :: = "=" | "<>" | "<" | "<=" | ">" | ">=".
 
@@ -96,7 +100,7 @@ digit :: = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9".
 letter :: = "a" | "b" | … | "y" | "z" | "A" | "B" | ... | "Y" | "Z".
 
 
-Wirth’s rules for EBNF:
+*Wirth’s rules for EBNF:*
 
 [] means an optional item.
 
@@ -109,7 +113,8 @@ A period is used to indicate the end of the definition of a syntactic class.
 
 ------------------------
 
-Lexical Conventions for PL/0:
+*Lexical Conventions for PL/0:*
+
 
 A numerical value is assigned to each token (internal representation) as follows: 
 
@@ -141,7 +146,7 @@ Comments denoted by: /* . . . */
 
 ------------------------
 
-Error messages for the tiny PL/0 Parser:
+*Error messages for the tiny PL/0 Parser:*
 
 1.	Use = instead of :=.
 2.	= must be followed by a number.
