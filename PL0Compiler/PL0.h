@@ -3,7 +3,7 @@
 
 // Compiler for the PL/0 language with registers written in C.
 
-// ERROR RECOVERY NOT IMPLEMENTED.
+// Error recovery not implemented.
 
 #ifndef _PL0_H_
 #define _PL0_H_
@@ -96,15 +96,16 @@ typedef enum {
 
 typedef struct {
 
-	int op;	// Opcode
-	int r; 	// Register
-	int l;	// Lexicographical level or a register in arithmetic and logic code R[j].
-	int m;	// Depending on the operators it indicates:
-			// - A number (code: LIT, INC).
-			// - A program address(code: JMP, JPC, CAL).
-			// - A data address(code: LOD, STO)
-			// - A register in arithmetic and logic code R[k].
-			// (e.g.ADD R[1], R[2], R[3])
+	int count;	// Number of generated instructions will be stored in the frist index of the structure.
+	int op;		// Opcode
+	int r; 		// Register
+	int l;		// Lexicographical level or a register in arithmetic and logic code R[j].
+	int m;		// Depending on the operators it indicates:
+				// - A number (code: LIT, INC).
+				// - A program address(code: JMP, JPC, CAL).
+				// - A data address(code: LOD, STO)
+				// - A register in arithmetic and logic code R[k].
+				// (e.g.ADD R[1], R[2], R[3])
 } instruction;
 
 typedef struct
@@ -196,12 +197,12 @@ instruction* parserCodeGen(lexeme* lexemes, int print);
 // Lexer function declares.
 void printTable(lexeme* table, int size);
 void printList(lexeme* table, int size);
-lexeme* analyzeCode(char** lines, int size, int print);
+lexeme* analyzeCode(char** lines, int size, int printLexTable, int printLexList);
 
 // VM function declares.
 int base(int l, int base, int stack[]);
 void printOpInstructions(instruction code[], int size);
-int interpret(instruction code[], int print);
+int interpret(instruction code[], int printOp, int printExec);
 
 // Compiler function declare.
 void printSourceCode(char** lines, int size);

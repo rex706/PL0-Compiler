@@ -870,6 +870,9 @@ instruction* parserCodeGen(lexeme* lexemes, int print)
 	// Begin recursive descent parser and generate code in-line.
 	program(lexemes, table, code, &p);
 
+	// Save the number of generated instructions to the frist index.
+	code[0].count = p.instruction;
+
 	if (p.error == 0)
 		printf("No errors, program is syntactically correct.\n\n");
 	else

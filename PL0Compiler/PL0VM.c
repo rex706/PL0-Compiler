@@ -137,8 +137,12 @@ void printOpInstructions(instruction code[], int size)
 	printf("\n");
 }
 
-int interpret(instruction code[], int print)
+int interpret(instruction code[], int printOp, int printExec)
 {
+	// If the -o print command was used.
+	if (printOp)
+		printOpInstructions(code, code[0].count);
+
 	// Initialize program counter, stack pointers, and the instruction register.
 	int pc = 0;
 	int bp = 1;
@@ -157,7 +161,7 @@ int interpret(instruction code[], int print)
 	// String for printing the op code.
 	char* op = calloc(3, sizeof(char));
 
-	if (print)
+	if (printExec)
 		printf("\t\t\t\t\tpc\tbp\tsp\n");
 
 	int halt = 0, printReg = 0;
@@ -306,7 +310,7 @@ int interpret(instruction code[], int print)
 			break;
 		}
 
-		if (print)
+		if (printExec)
 		{
 			// Print op, R, L, M, pc, bp, sp)
 			printf("%s\t%d\t%d\t%d\t%d\t%d\t%d\t", op, ir.r, ir.l, ir.m, pc, bp, sp);
@@ -321,7 +325,8 @@ int interpret(instruction code[], int print)
 			}
 			printf("\n");
 
-			printf("Reg\t");
+			// Print all of the registers.
+			printf("reg\t");
 			for (int i = 0; i < 16; i++)
 			{
 				printf("%d\t", registers[i]);

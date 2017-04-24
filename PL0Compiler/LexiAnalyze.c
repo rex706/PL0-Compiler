@@ -35,7 +35,7 @@ void printList(lexeme* table, int size)
 	printf("\n\n");
 }
 
-lexeme* analyzeCode(char** lines, int lineCount, int print)
+lexeme* analyzeCode(char** lines, int lineCount, int printLexTable, int printLexList)
 {
 	// Lexeme table index.
 	int k = 0;
@@ -301,7 +301,7 @@ lexeme* analyzeCode(char** lines, int lineCount, int print)
 			{
 				if (j + 1 < lineLength && lines[i][j + 1] == '/')
 				{
-					printf("Error 34 (Unrecoverable): End comment symbol but comment was never started.");
+					printf("Error 34 (Unrecoverable): End comment symbol but comment was never started on line %d.", i);
 					exit(1);
 				}
 
@@ -402,17 +402,17 @@ lexeme* analyzeCode(char** lines, int lineCount, int print)
 
 				while (j <= lineLength && (isalpha(lines[i][j]) || isdigit(lines[i][j])))
 				{
+					// Check for valid name length.
+					if (strlen(s) >= MAX_CHAR_LENGTH)
+					{
+						printf("Error 33 (Unrecoverable): Identifier name is too long: %s\nMax length: %d", s, MAX_CHAR_LENGTH);
+						exit(1);
+					}
+
 					strncat(s, &lines[i][j], 1);
 					j++;
 				}
 				j--;
-
-				// Check for valid name length.
-				if (strlen(s) > MAX_CHAR_LENGTH)
-				{
-					printf("Error 33 (Unrecoverable): Identifier name is too long: %s", s);
-					exit(1);
-				}
 
 				strcpy(table[k].lex, s);
 				free(s);
@@ -427,6 +427,13 @@ lexeme* analyzeCode(char** lines, int lineCount, int print)
 
 				while (j <= lineLength && isdigit(lines[i][j]))
 				{
+					// Check for valid digit amount.
+					if (strlen(s) >= MAX_DIGIT_LENGTH)
+					{
+						printf("Error 25 (Unrecoverable): Number is too large: %s\nCannot have more than %d digits.", s, MAX_DIGIT_LENGTH);
+						exit(1);
+					}
+
 					strncat(s, &lines[i][j], 1);
 					j++;
 				}
@@ -438,13 +445,6 @@ lexeme* analyzeCode(char** lines, int lineCount, int print)
 				//	exit(1);
 				//}
 				j--;
-
-				// Check for valid digit amount.
-				if (strlen(s) > MAX_DIGIT_LENGTH)
-				{
-					printf("Error 25 (Unrecoverable): Number is too large: %s", s);
-					exit(1);
-				}
 
 				strcpy(table[k].lex, s);
 				free(s);
@@ -462,10 +462,15 @@ lexeme* analyzeCode(char** lines, int lineCount, int print)
 	// Save the number of tokens into the first index of the struct to be used by the parser.
 	table[0].count = k;
 
-	// If '-l' print command was used, ouput lexeme data to console. 
-	if (print)
+	// If '-t' print command was used.
+	if (printLexTable)
 	{
-		//printTable(table, k);
+		printTable(table, k);
+	}
+
+	// If '-l' print command was used. 
+	if (printLexList)
+	{
 		printList(table, k);
 	}
 

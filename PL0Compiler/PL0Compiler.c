@@ -21,8 +21,10 @@ int main(int argc, char **argv)
 {
 	// Initialize print command flags.
 	int printSource = 0;
-	int printLexemes = 0;
+	int printLexList = 0;
+	int printLexTable = 0;
 	int printAssembly = 0;
+	int printOp = 0;
 	int printVM = 0;
 
 	// Open file from command line.
@@ -37,7 +39,7 @@ int main(int argc, char **argv)
 	for (int i = 2; i < argc; i++)
 	{
 		if (strcmp(argv[i], "-l") == 0)
-			printLexemes = 1;
+			printLexList = 1;
 
 		else if (strcmp(argv[i], "-a") == 0)
 			printAssembly = 1;
@@ -47,6 +49,12 @@ int main(int argc, char **argv)
 
 		else if (strcmp(argv[i], "-s") == 0)
 			printSource = 1;
+
+		else if (strcmp(argv[i], "-t") == 0)
+			printLexTable = 1;
+
+		else if (strcmp(argv[i], "-o") == 0)
+			printOp = 1;
 	}
 
 	// Initialize line counter. 
@@ -81,13 +89,13 @@ int main(int argc, char **argv)
 		printSourceCode(lines, counter);
 
 	// Run Lexical Analysis to generate lexemes.
-	lexeme* lexemes = analyzeCode(lines, counter, printLexemes);
+	lexeme* lexemes = analyzeCode(lines, counter, printLexTable, printLexList);
 
 	// Send lexemes to Parser/Code Generator to generate assembly code.
 	instruction* code = parserCodeGen(lexemes, printAssembly);
 
 	// Run generated assembly in the virtual machine.
-	interpret(code, printVM);
+	interpret(code, printOp, printVM);
 
 	// Free dynamic variables.
 	free(lines);
