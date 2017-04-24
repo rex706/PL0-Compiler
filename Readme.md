@@ -36,15 +36,23 @@ gcc -o [name] PL0Compiler.c LexiAnalyze.c ParserCodeGen.c PL0VM.c
 -v - print virtual machine execution trace and registers.
 
 
-**Compile and cammand examples:**
+**Compile and command examples:**
 
-./compile input.txt –l –a –v -s		Print multiple types of output to the console.
+Print multiple types of output to the console:
 
-./compile input.txt –v				Print only the VM execution trace and registers to the console.
+./compile input.txt –l –a –v -s		
 
-./compile input.txt					Print nothing to the console except for "in" and "out".
+Print only the VM execution trace and registers to the console:
 
-./compile input.txt > output.txt	Divert all printing to output.txt.
+./compile input.txt –v
+
+Print nothing to the console except for "in" and "out":	
+
+./compile input.txt					
+
+Divert all printing to output.txt:
+
+./compile input.txt > output.txt	
 
 "/Cases" directory contains various test cases and examples that can be used with the compiler.
 
